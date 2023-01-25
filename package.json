@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "npx gulp clean && npx gulp development"
+    "dev": "npx gulp clean && npx gulp development"
   },
   "devDependencies": {
     "del": "^7.0.0",
