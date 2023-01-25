@@ -39,6 +39,16 @@ const paths = {
         dest: `${pj.dest}/css`
     },
 
+    js: {
+        src: `${pj.src}/js/**.js`,
+        dest: `${pj.dest}/js`,
+    },
+
+    assets: {
+        src: `${pj.src}/assets/**`,
+        dest: `${pj.dest}/assets`,
+    },
+
     watch: {
 		src: [`${pj.src}/**`],
 	},
@@ -106,6 +116,14 @@ const dev = (done) => {
             ])
         )
         .pipe(dest(paths.image.dest));
+
+    // js
+    src(paths.js.src)
+        .pipe(dest(paths.js.dest))
+
+    // assets
+    src(paths.assets.src)
+        .pipe(dest(paths.assets.dest))
 
     done();
 }
