@@ -1,0 +1,12 @@
+$breakpoints: (
+    "sm": "screen and (min-width: 400px)",
+    "md": "screen and (min-width: 768px)",
+    "lg": "screen and (min-width: 1000px)",
+    "xl": "screen and (min-width: 1200px)",
+    // pc main coding
+    // "tab": "screen and (max-width: 1024px)",
+    // "sp": "screen and (max-width: 599px)",
+    // mobile first
+    "tab": "screen and (min-width: 600px)",
+    "pc": "screen and (min-width: 1025px)",
+) !default;
