@@ -1,11 +1,11 @@
-@import '_reset';
-@import '_font';
-@import '_variable';
-@import '_mixin';
-@import '_cleanBlogStyle';
+@use 'reset';
+@forward 'font';
+@use 'variable';
+@use 'mixin';
+@forward 'cleanBlogStyle';
 
 body {
-    color: $text-black;
+    color: variable.$text-black;
     font-family: 'Shippori Mincho B1', serif;
 }
 .header {

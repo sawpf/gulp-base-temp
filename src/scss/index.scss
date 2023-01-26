@@ -1,8 +1,7 @@
-@import '_components';
-@import '_common';
+@use 'variable';
+@use 'mixin';
+@use 'components';
+@use 'common';
 
 // styles
 // ...
-
-// end
-@import '_pcsp';
