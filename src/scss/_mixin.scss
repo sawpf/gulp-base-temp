@@ -1,6 +1,6 @@
-@import '_breakpoint';
+@use 'breakpoint';
 @mixin mq($breakpoint) {
-    @media #{map-get($breakpoints, $breakpoint)} {
+    @media #{map-get(breakpoint.$breakpoints, $breakpoint)} {
         @content;
     }
 }
