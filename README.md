@@ -5,7 +5,7 @@
 - install project
     - `yarn`
 - start gulp
-    - `yarn build`
+    - `yarn dev`
 
 ## subject
 - gulp
