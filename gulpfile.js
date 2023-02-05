@@ -3,8 +3,6 @@
 const gulp = require('gulp');
 const { src, dest, series, parallel, watch } = require('gulp');
 
-const dartSass = require('gulp-sass')(require('sass'));
-
 const del = require('del');
 const bs = require('browser-sync');
 const pngquant = require('imagemin-pngquant');
@@ -13,6 +11,9 @@ const mozjpeg = require('imagemin-mozjpeg');
 const $ = require('gulp-load-plugins')();
 const pug = require('gulp-pug'); // Pug
 const htmlbeautify = require('gulp-html-beautify'); // HTML整形
+const dartSass = require('gulp-dart-sass');
+const cssbeautify = require('gulp-cssbeautify');
+const sourcemaps = require('gulp-sourcemaps');
 
 const pj = {
     src: `./src`,
@@ -92,9 +93,13 @@ const dev = (done) => {
     // sass
 	src(paths.scss.src) // コンパイル
         .pipe($.plumber())
+        .pipe(sourcemaps.init())
         .pipe($.sassGlobUseForward())
         .pipe(dartSass())
         .pipe($.autoprefixer())
+        .pipe(sourcemaps.write('./'))
+        .pipe(dest(paths.scss.dest))
+        .pipe(cssbeautify())
         .pipe(dest(paths.scss.dest));
 
     // image
@@ -104,10 +109,10 @@ const dev = (done) => {
         .pipe(
             $.imagemin([
                 pngquant({
-                    quality: [0.6, 0.7],
+                    quality: [0.8, 0.9],
                     speed: 1,
                 }),
-                mozjpeg({ quality: 65 }),
+                mozjpeg({ quality: 90 }),
                 $.imagemin.svgo(),
                 $.imagemin.optipng(),
                 $.imagemin.gifsicle({
