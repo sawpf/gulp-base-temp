@@ -31,23 +31,18 @@ const paths = {
     },
 
 	image: {
-		src: `${pj.src}/img/**`,
-		dest: `${pj.dest}/img`,
+		src: `${pj.src}/assets/img/**`,
+		dest: `${pj.dest}/assets/img`,
 	},
 
     scss: {
-        src: `${pj.src}/scss/**.scss`,
-        dest: `${pj.dest}/css`
+        src: `${pj.src}/assets/scss/**.scss`,
+        dest: `${pj.dest}/assets/css`
     },
 
     js: {
-        src: `${pj.src}/js/**.js`,
-        dest: `${pj.dest}/js`,
-    },
-
-    assets: {
-        src: `${pj.src}/assets/**`,
-        dest: `${pj.dest}/assets`,
+        src: `${pj.src}/assets/js/**.js`,
+        dest: `${pj.dest}/assets/js`,
     },
 
     watch: {
@@ -125,10 +120,6 @@ const dev = (done) => {
     // js
     src(paths.js.src)
         .pipe(dest(paths.js.dest))
-
-    // assets
-    src(paths.assets.src)
-        .pipe(dest(paths.assets.dest))
 
     done();
 }
